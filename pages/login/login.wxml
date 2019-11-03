@@ -1,0 +1,13 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+    <view class="usernameBox">
+        <image class="userPic" src="../../images/painting.png"/>
+        <input class="usernameInput" bindinput="getUsername" value="{{user.username}}"></input>
+    </view>
+    <view class="passwordBox">
+        <input class="passwordInput" type="password" bindinput="getPassword" value="{{user.password}}"></input>
+    </view>
+    <view class="loginBtn">
+        <image class="loginPic" src="../../images/painting.png" bindtap="login"/>
+    </view>
+</view>

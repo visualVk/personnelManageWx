@@ -1,0 +1,58 @@
+/* pages/login/login.wxss */
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.usernameBox {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20rpx;
+    width: 65%;
+    border-radius: 75rpx;
+    border: 1rpx solid#DDDDDD;
+}
+
+.passwordBox {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20rpx;
+    width: 65%;
+    border-radius: 75rpx;
+    border: 1rpx solid#DDDDDD;
+}
+
+.passwordInput {
+    margin-left: 20rpx;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+    text-align: center;
+}
+
+.userPic {
+    margin-left: 20rpx;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+    height: 50rpx;
+    width: 50rpx;
+    border-radius: 25rpx;
+}
+
+.usernameInput {
+    margin-top: 20rpx;
+    margin-left: 75rpx;
+    margin-bottom: 20rpx;
+}
+
+.loginBtn {
+    flex: 1;
+    margin-top: 20rpx;
+}
+
+.loginPic {
+    width: 75rpx;
+    height: 75rpx;
+    border-radius: 37.5rpx;
+}
