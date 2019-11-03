@@ -10,4 +10,8 @@
     <view class="loginBtn">
         <image class="loginPic" src="../../images/painting.png" bindtap="login"/>
     </view>
+    <view class="bottom-bar">
+        <view class="empty-box">忘记密码</view>
+        <view class="empty-box">注册</view>
+    </view>
 </view>

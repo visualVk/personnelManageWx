@@ -1,100 +1,75 @@
 //index.js
 //获取应用实例
-const app = getApp()
-import * as loginApi from '../../utils/Login/api/LoginApi'
-import httpRequest from "../../utils/api/httpRequest";
 import * as personApi from '../../utils/PersonInfo/api/PersonApi'
-import * as developingApi from '../../utils/Developing/api/DevelopingAPi'
-import * as learnApi from '../../utils/Learn/api/LearnApi'
+
+const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    username: 'username',
     user: {
       username: '',
       password: ''
     },
-    open: false
+    person: {
+      personId: wx.getStorageSync('personId'),
+      name: 'name',
+      sex: false,
+      age: 1,
+      level: '',
+      isLive: true,
+      partyBranch: '',
+      imagePath: '../../images/tab_account2.png',
+      jobs: [
+        {
+          jobId: 1,
+          jobName: 'jobName1',
+        },
+        {
+          jobId: 2,
+          jobName: 'jobName2'
+        }
+      ]
+    },
+    open: false,
+    list: {
+      open: false
+    }
   },
   //事件处理函数
   bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
+  },
+  onReady: function () {
+    wx.setStorageSync('personId', 1)
+    var person;
+    let that = this;
+    personApi.findPersonNormalInfoById().then(res => {
+      console.log(res.queryResult.list[0]);
+      that.setData({
+        person: res.queryResult.list[0]
+      })
     })
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
+  onLoad: function (query) {
+    console.log(query);
+  },
+  tap_ch: function (e) {
+    if (this.data.open) {
       this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
+        open: false
+      });
     } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
+      this.setData({
+        open: true
+      });
     }
-    loginApi.userLogin({username: 'admin', password: 'admin'}).then(res => {
-      // console.log(res);
-      httpRequest.requestGet('http://personnel-manage.top:40400/auth/userjwt').then(res => {
-        // console.log(res);
-        personApi.updatePersonNormalInfo({
-          person: {
-            personId: wx.getStorageSync('personId'),
-            name: 'aaa',
-            sex: true,
-            age: 11,
-            level: 0,
-            isLive: true
-          },
-          file: 'images/not_rotate_result_img.png'
-        }).then(res => {
-          console.log(res);
-        })
-        // personApi.updatePersonNormalInfo()
-      })
-    })
-    learnApi.findLearnsByPersonId().then(res => {
-      //do something
-    }).catch(error => {
-      //do something
-    })
   },
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
+  widgetsToggle: function (e) {
+    var list = this.data.list
+    list.open = !list.open
+    console.log(list)
     this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      list: list
     })
   },
-    tap_ch: function(e){
-        if(this.data.open){
-            this.setData({
-                open : false
-            });
-        }else{
-            this.setData({
-                open : true
-            });
-        }
-    }
 })
