@@ -72,4 +72,9 @@ Page({
       list: list
     })
   },
+  go2Page:function (e) {
+    wx.redirectTo({
+      url:'/pages/'+e.target.dataset.val
+    })
+  }
 })
