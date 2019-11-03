@@ -20,7 +20,7 @@
                 <text>{{username}}</text>
             </view>
             <view class="wc">
-                <navigator url="../one/index" hover-class="navigator-hover">个人信息</navigator>
+                <navigator url="../index/index" hover-class="navigator-hover">个人信息</navigator>
             </view>
             <view class="wc">
                 <navigator url="../two/index" hover-class="navigator-hover">第二个菜单（缩放）</navigator>
