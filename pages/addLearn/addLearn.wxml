@@ -1,0 +1,34 @@
+<!--pages/addLearn/addLearn.wxml-->
+<!-- 新建任务 -->
+<view class="add-page">
+
+    <view class="mod-a">
+        <!-- 任务名称 -->
+        <view class="mod t-name">
+            <text class="key">任务名称</text>
+            <input bindinput="getLearnContent" class="input" maxlength="100" placeholder="请输入任务名称" />
+            <image class="arrow-r" src="../../image/arrow-r-0.png"></image>
+        </view>
+    </view>
+
+    <view class="mod-a mt20">
+        <!-- 任务地点 -->
+        <view class="mod t-address" bindtap="chooseImage">
+            <text class="key">凭证照片</text>
+            <text class="value">{{certificateTip}}</text>
+            <image class="arrow-r" src="../../images/arrow-r-0.png"></image>
+        </view>
+
+    </view>
+
+    <!-- 创建按钮 -->
+    <view class="create">
+        <button class="btn {{creating ? 'disabled' : ''}}" bindtap="bindSubmit">提交</button>
+    </view>
+
+    <!-- 提示信息 -->
+<!--    <modal confirm-text="确定"no-confirm  no-cancel hidden="{{modalHidden}}" mask bindconfirm="modalChange">-->
+<!--        请完善新建任务信息-->
+<!--    </modal>-->
+
+</view>

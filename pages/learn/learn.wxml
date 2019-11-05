@@ -1,0 +1,64 @@
+<!--pages/learn/learn.wxml-->
+<view class="page">
+    <view class="page-bottom">
+        <view class="page-content">
+            <view class="page-bottom-top">
+                <image src="../../images/handmake.png"/>
+                <text>{{username}}</text>
+            </view>
+            <view class="wc">
+                <a bindtap="go2Page" data-val="index/index">个人信息</a>
+            </view>
+            <view class="wc">
+                <a bindtap="go2Page" data-val="learn/learn">进修信息</a>
+            </view>
+            <view class="wc">
+                <a url="../three/index" hover-class="navigator-hover">发展信息</a>
+            </view>
+            <view class="wc">
+                <a url="../four/index" hover-class="navigator-hover">合同信息</a>
+            </view>
+        </view>
+    </view>
+    <view class="page-top {{open ? 'c-state1' : ''}}">
+        <view class="top-bar">
+            <image class="image-top-bar" bindtap="tap_ch" src="../../images/painting.png"></image>
+            <view class="text">进修信息</view>
+            <image class="add" src="../../images/add_selected.png" bindtap="go2AddLearn"/>
+        </view>
+        <scroll-view scroll-y="true" enable-flex="true">
+            <view class="content">
+                <block wx:for-items="{{list}}" wx:for-index="index" wx:key>
+                    <view class="widgets__item">
+                        <view class="widgets__info" bindtap="widgetsToggle" id="{{item.learn.learnId}}">
+                            <label class="widgets__info-name">进修编号{{index+1}}</label>
+                            <image class="widgets__info-img" src="/images/arrowright.png" mode="aspectFill"/>
+                        </view>
+                        <view class="{{item.open ? '' : 'widgets__table'}}">
+                            <!--                            <block wx:for="{{item}}" wx:key>-->
+                            <view class="row">
+                                <view class="empty-box"/>
+                                <image class="image-content" src="{{item.learn.certificatePath}}" mode="aspectFill"/>
+                                <view class="empty-box"/>
+                            </view>
+                            <view class="row">
+                                <label class="label-text">内容：</label>
+                                <text class="label-content">{{item.learn.content}}</text>
+                            </view>
+                            <view class="row">
+                                <label class="label-text">提交日期：</label>
+                                <text class="label-content">{{item.learn.date}}</text>
+                            </view>
+                            <view class="row">
+                                <view class="empty-box"/>
+                                <text class="label-content text-center text-red">{{item.learn.checkString}}</text>
+                                <view class="empty-box"/>
+                            </view>
+                            <!--                            </block>-->
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
+    </view>
+</view>
