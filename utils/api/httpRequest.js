@@ -90,6 +90,28 @@ export default {
             })
         })
     },
+    requestPostFormDataAndUploadFile(url,params = {}){
+        return new Promise((resolve, reject) => {
+            wx.uploadFile({
+                url:url,
+                filePath:params.certificate,
+                name: 'certificate',
+                formData: {
+                    'learn': JSON.stringify(params.learn)
+                },
+                header: {
+                    'Content-Type': 'multipart/form-data',
+                    'Authorization': jwt || '',
+                },
+                success(res){
+                    resolve(res)
+                },
+                fail(error){
+                    reject(error)
+                }
+            })
+        })
+    },
     requestPutFormData(url, param = {}) {
         return new Promise((resolve, reject) => {
             wx.uploadFile({
@@ -97,7 +119,7 @@ export default {
                 filePath: param.file,
                 name: 'file',
                 formData: {
-                    'personNormal': JSON.stringify(param.person) || '',
+                    'learn': JSON.stringify(param.person) || '',
                     '_method': 'PUT'
                 },
                 header: {

@@ -55,8 +55,8 @@ page,.page {
 .page-content{
 }
 .page-top{
-    height: 100%;
-    position: fixed;
+    /*height: 100%;*/
+    position: relative;
     width: 750rpx;
     background-color: #F2F6FC;
     z-index: 0;

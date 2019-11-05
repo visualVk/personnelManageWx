@@ -44,7 +44,7 @@ Page({
     var person;
     let that = this;
     personApi.findPersonNormalInfoById().then(res => {
-      console.log(res.queryResult.list[0]);
+      console.log(res);
       that.setData({
         person: res.queryResult.list[0]
       })

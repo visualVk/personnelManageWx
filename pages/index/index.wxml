@@ -23,7 +23,7 @@
                 <a bindtap="go2Page" data-val="index/index">个人信息</a>
             </view>
             <view class="wc">
-                <a url="../two/index" hover-class="navigator-hover">进修信息</a>
+                <a bindtap="go2Page" data-val="learn/learn">进修信息</a>
             </view>
             <view class="wc">
                 <a url="../three/index" hover-class="navigator-hover">发展信息</a>

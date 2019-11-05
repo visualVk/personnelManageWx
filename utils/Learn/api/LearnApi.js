@@ -18,8 +18,12 @@ export const findLearnsByPersonId = () => {
     })
 }
 
-// export const addLearn = (LearnEntity) => {
-//     return new Promise((resolve, reject) => {
-//         http.requestPutFormData('addLearn')
-//     })
-// }
+export const addLearn = (LearnEntity) => {
+    return new Promise((resolve, reject) => {
+        http.requestPostFormDataAndUploadFile(baseUrl+'addLearn',LearnEntity).then(res => {
+            resolve(res.data)
+        }).catch(error => {
+            reject(error)
+        })
+    })
+}

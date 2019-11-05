@@ -87,12 +87,13 @@ Page({
     })
   },
   login: function () {
-    console.log(123)
     loginApi.userLogin(this.data.user).then(res => {
       console.log(res);
-      wx.navigateTo({
-        url:'/pages/index/index'
-      })
+      if (res.success) {
+        wx.navigateTo({
+          url: '/pages/index/index'
+        })
+      }
     })
   }
 })

@@ -1,9 +1,11 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/addLearn/addLearn",
+    "pages/learn/learn",
+    "pages/test/test",
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/personInfo/personInfo"
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -11,5 +13,9 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "networkTimeout": {
+    "request": 20000,
+    "uploadFile": 20000
+  }
 }
