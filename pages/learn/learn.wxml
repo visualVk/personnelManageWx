@@ -13,10 +13,10 @@
                 <a bindtap="go2Page" data-val="learn/learn">进修信息</a>
             </view>
             <view class="wc">
-                <a url="../three/index" hover-class="navigator-hover">发展信息</a>
+                <a bindtap="go2Page" data-val="developing/developing">发展信息</a>
             </view>
             <view class="wc">
-                <a url="../four/index" hover-class="navigator-hover">合同信息</a>
+                <a bindtap="go2Page" data-val="pact/pact">合同信息</a>
             </view>
         </view>
     </view>
