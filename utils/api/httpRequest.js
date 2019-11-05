@@ -153,5 +153,25 @@ export default {
                 }
             })
         })
+    },
+    requestPutForm(url,params = {}) {
+        return new Promise((resolve, reject) => {
+            wx.request({
+                url:url,
+                method:'PUT',
+                data:params,
+                dataType: 'json',
+                header: {
+                    'Authorization': '' || jwt,
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                success(res) {
+                    resolve(res)
+                },
+                fail(error) {
+                    reject(error)
+                }
+            })
+        })
     }
 }

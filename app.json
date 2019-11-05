@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/forgetPassword/forgetPassword",
     "pages/developing/developing",
     "pages/pact/pact",
     "pages/addLearn/addLearn",
@@ -12,7 +13,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "人事管理（普通用户）",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",

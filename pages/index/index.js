@@ -40,7 +40,6 @@ Page({
   bindViewTap: function () {
   },
   onReady: function () {
-    wx.setStorageSync('personId', 1)
     var person;
     let that = this;
     personApi.findPersonNormalInfoById().then(res => {

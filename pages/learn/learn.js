@@ -37,7 +37,6 @@ Page({
   onReady: function () {
     //测试完后需要修改
     let that = this
-    wx.setStorageSync('personId', 1)
     learnApi.findLearnsByPersonId().then(res => {
       let list = res.queryResult.list;
       for (let i = 0, len = list.length; i < len; i++) {
