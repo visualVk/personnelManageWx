@@ -31,6 +31,9 @@
             <view class="wc">
                 <a bindtap="go2Page" data-val="pact/pact">合同信息</a>
             </view>
+            <view class="wc">
+                <a bindtap="logout" data-val="pact/pact">登出</a>
+            </view>
         </view>
     </view>
     <view class="page-top {{open ? 'c-state1' : ''}}">

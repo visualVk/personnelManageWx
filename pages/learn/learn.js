@@ -1,5 +1,6 @@
 // pages/learn/learn.js
 import * as learnApi from '../../utils/Learn/api/LearnApi'
+import * as loginApi from "../../utils/Login/api/LoginApi";
 
 Page({
 
@@ -46,7 +47,7 @@ Page({
         }
       }
       that.setData({list: that.data.list})
-      console.log(that.data.list);
+      // console.log(that.data.list);
     })
   },
 
@@ -121,6 +122,13 @@ Page({
   go2AddLearn:function () {
     wx.navigateTo({
       url: '/pages/addLearn/addLearn'
+    })
+  },
+  logout: function () {
+    loginApi.userlogout().then(res => {
+      wx.navigateBack({
+        delta: 1
+      })
     })
   }
 })

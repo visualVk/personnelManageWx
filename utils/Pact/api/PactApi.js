@@ -12,3 +12,19 @@ export const findAllPactByPersonId = () => {
     })
   })
 }
+
+export const findPactsByQueryVo = (queryVo) => {
+  let personId = wx.getStorageSync('personId')
+  return new Promise((resolve, reject) => {
+    http.requestGet(baseUrl + 'findPactsByQueryVo/' + personId, queryVo).then(res => {
+      debugger
+      resolve(res.data)
+    }).catch(error => {
+      reject(error)
+    })
+  })
+}
+
+// export const findPactsByName = () => {
+//   let personId =
+// }

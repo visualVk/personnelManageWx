@@ -1,5 +1,6 @@
 // pages/developing/developing.js
 import * as developingApi from '../../utils/Developing/api/DevelopingAPi'
+import * as loginApi from "../../utils/Login/api/LoginApi";
 
 Page({
 
@@ -114,6 +115,13 @@ Page({
   go2Page: function (e) {
     wx.redirectTo({
       url: '/pages/' + e.target.dataset.val
+    })
+  },
+  logout: function () {
+    loginApi.userlogout().then(res => {
+      wx.navigateBack({
+        delta: 1
+      })
     })
   }
 })

@@ -1,5 +1,6 @@
 // pages/pact/pact.js
 import * as pactApi from '../../utils/Pact/api/PactApi'
+import * as loginApi from "../../utils/Login/api/LoginApi";
 
 Page({
 
@@ -7,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    searchBarOpen: false,
     open: false,
     list: [
       {
@@ -25,30 +27,34 @@ Page({
         }
       }
     ],
+    queryVo: {
+      pactName: ''
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // debugger
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    // debugger
     pactApi.findAllPactByPersonId().then(res => {
-      let list = res.queryResult.list;
+      let list = res.queryResult.list, newList = []
       // debugger
       for (let i = 0, len = list.length; i < len; i++) {
-        this.data.list[i] = {
+        newList[i] = {
           open: false,
           pact: list[i]
         }
       }
       this.setData({
-        list: this.data.list
+        list: newList
       })
       // debugger
     })
@@ -122,4 +128,38 @@ Page({
       url: '/pages/' + e.target.dataset.val
     })
   },
+  showSearchBar: function () {
+    let open = !this.data.searchBarOpen
+    this.setData({
+      searchBarOpen: open
+    })
+  },
+  getPactName: function (e) {
+    this.data.queryVo.pactName = e.detail.value
+    this.setData({
+      queryVo: this.data.queryVo
+    })
+  },
+  showPactByQueryVo: function () {
+    pactApi.findPactsByQueryVo(this.data.queryVo).then(res => {
+      let list = res.queryResult.list, newList = []
+      // debugger
+      for (let i = 0, len = list.length; i < len; i++) {
+        newList[i] = {
+          open: false,
+          pact: list[i]
+        }
+      }
+      this.setData({
+        list: newList
+      })
+    })
+  },
+  logout: function () {
+    loginApi.userlogout().then(res => {
+      wx.navigateBack({
+        delta: 1
+      })
+    })
+  }
 })

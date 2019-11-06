@@ -18,16 +18,23 @@
             <view class="wc">
                 <a bindtap="go2Page" data-val="pact/pact">合同信息</a>
             </view>
+            <view class="wc">
+                <a bindtap="logout" data-val="pact/pact">登出</a>
+            </view>
         </view>
     </view>
     <view class="page-top {{open ? 'c-state1' : ''}}">
         <view class="top-bar">
             <image class="image-top-bar" bindtap="tap_ch" src="../../images/painting.png"></image>
             <view class="text">合同信息</view>
-            <image class="add" src="../../images/add_selected.png" bindtap="go2AddLearn"/>
+            <image class="add" src="../../images/icon_info@3x.png" bindtap="showSearchBar"/>
         </view>
         <scroll-view scroll-y="true" enable-flex="true">
             <view class="content">
+                <view class="{{searchBarOpen ? 'searchBar-show':'searchBar-hidden'}}">
+                    <input class="search-input" placeholder="输入合同名称" bindinput="getPactName"/>
+                    <a class="search-btn" bindtap="showPactByQueryVo">查询</a>
+                </view>
                 <block wx:for-items="{{list}}" wx:for-index="index" wx:key>
                     <view class="widgets__item">
                         <view class="widgets__info" bindtap="widgetsToggle" id="{{item.pact.pactId}}">

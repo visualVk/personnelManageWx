@@ -25,7 +25,7 @@ export const userLogin = (user) => {
           wx.setStorageSync('cookie', cookies[i])
         }
         // console.log(cookie);
-        console.log(wx.getStorageSync('cookie'));
+        // console.log(wx.getStorageSync('cookie'));
         wx.setStorageSync('token', data.token)
         userJwt().then(result => {
           resolve(result.data)

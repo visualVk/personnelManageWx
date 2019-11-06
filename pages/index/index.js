@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 import * as personApi from '../../utils/PersonInfo/api/PersonApi'
+import * as loginApi from '../../utils/Login/api/LoginApi'
 
 const app = getApp()
 
@@ -43,14 +44,14 @@ Page({
     var person;
     let that = this;
     personApi.findPersonNormalInfoById().then(res => {
-      console.log(res);
+      // console.log(res);
       that.setData({
         person: res.queryResult.list[0]
       })
     })
   },
   onLoad: function (query) {
-    console.log(query);
+    // console.log(query);
   },
   tap_ch: function (e) {
     if (this.data.open) {
@@ -66,14 +67,21 @@ Page({
   widgetsToggle: function (e) {
     var list = this.data.list
     list.open = !list.open
-    console.log(list)
+    // console.log(list)
     this.setData({
       list: list
     })
   },
-  go2Page:function (e) {
+  go2Page: function (e) {
     wx.redirectTo({
-      url:'/pages/'+e.target.dataset.val
+      url: '/pages/' + e.target.dataset.val
+    })
+  },
+  logout: function () {
+    loginApi.userlogout().then(res => {
+      wx.navigateBack({
+        delta: 1
+      })
     })
   }
 })

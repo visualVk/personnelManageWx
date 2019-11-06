@@ -152,3 +152,25 @@
 .text-red {
     color: orangered;
 }
+
+.searchBar-hidden {
+    display: none;
+}
+
+.searchBar-show {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-input {
+    flex: 4;
+    padding: 10rpx 20rpx;
+    border: 5rpx solid#E4E7ED;
+}
+
+.search-btn {
+    flex: 1;
+    text-align: center;
+    padding: 10rpx 20rpx;
+    background-color: cornflowerblue;
+}

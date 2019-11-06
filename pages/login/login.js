@@ -88,7 +88,7 @@ Page({
   },
   login: function () {
     loginApi.userLogin(this.data.user).then(res => {
-      console.log(res);
+      // console.log(res);
       if (res.success) {
         wx.navigateTo({
           url: '/pages/index/index'
