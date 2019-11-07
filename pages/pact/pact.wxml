@@ -29,7 +29,7 @@
             <view class="text">合同信息</view>
             <image class="add" src="../../images/icon_info@3x.png" bindtap="showSearchBar"/>
         </view>
-        <scroll-view scroll-y="true" enable-flex="true">
+<!--        <scroll-view scroll-y="true" enable-flex="true">-->
             <view class="content">
                 <view class="{{searchBarOpen ? 'searchBar-show':'searchBar-hidden'}}">
                     <input class="search-input" placeholder="输入合同名称" bindinput="getPactName"/>
@@ -66,6 +66,6 @@
                     </view>
                 </block>
             </view>
-        </scroll-view>
+<!--        </scroll-view>-->
     </view>
 </view>

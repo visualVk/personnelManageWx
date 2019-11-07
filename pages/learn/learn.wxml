@@ -29,7 +29,7 @@
             <view class="text">进修信息</view>
             <image class="add" src="../../images/add_selected.png" bindtap="go2AddLearn"/>
         </view>
-        <scroll-view scroll-y="true" enable-flex="true">
+<!--        <scroll-view scroll-y="true" enable-flex="true">-->
             <view class="content">
                 <block wx:for-items="{{list}}" wx:for-index="index" wx:key>
                     <view class="widgets__item">
@@ -57,11 +57,15 @@
                                 <text class="label-content text-center text-red">{{item.learn.checkString}}</text>
                                 <view class="empty-box"/>
                             </view>
+                            <view class="row">
+                                <button class="edit-btn" id="{{item.learn.learnId}}" bindtap="go2UpdateLearn">编辑
+                                </button>
+                            </view>
                             <!--                            </block>-->
                         </view>
                     </view>
                 </block>
             </view>
-        </scroll-view>
+<!--        </scroll-view>-->
     </view>
 </view>

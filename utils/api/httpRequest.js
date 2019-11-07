@@ -1,4 +1,9 @@
 // 请求拦截
+// '-----------------------------' + boundary + '\n' +
+// 'Content-Disposition: form-data; name="learn"\n' +
+// '\n' +
+// JSON.stringify(params) + '\n' +
+// '-----------------------------' + boundary + '--\n'
 let token = wx.getStorageSync('token')
 let jwt = ''
 if (token) {
@@ -42,6 +47,16 @@ export default {
     })
   },
   requestPost(url, params = {}) {
+    let token = wx.getStorageSync('token')
+    let jwt = ''
+    if (token) {
+      // debugger
+      let jwtSuffix = wx.getStorageSync('jwt');
+      if (jwtSuffix) {
+        jwt = 'Bearer ' + jwtSuffix
+        // console.log(jwt);
+      }
+    }
     return new Promise((resolve, reject) => {
       wx.request({
         url: url,
@@ -91,6 +106,16 @@ export default {
     })
   },
   requestPostFormData(url, params = {}) {
+    let token = wx.getStorageSync('token')
+    let jwt = ''
+    if (token) {
+      // debugger
+      let jwtSuffix = wx.getStorageSync('jwt');
+      if (jwtSuffix) {
+        jwt = 'Bearer ' + jwtSuffix
+        // console.log(jwt);
+      }
+    }
     return new Promise((resolve, reject) => {
       wx.request({
         url: url,
@@ -111,6 +136,16 @@ export default {
     })
   },
   requestPostFormDataAndUploadFile(url, params = {}) {
+    let token = wx.getStorageSync('token')
+    let jwt = ''
+    if (token) {
+      // debugger
+      let jwtSuffix = wx.getStorageSync('jwt');
+      if (jwtSuffix) {
+        jwt = 'Bearer ' + jwtSuffix
+        // console.log(jwt);
+      }
+    }
     return new Promise((resolve, reject) => {
       wx.uploadFile({
         url: url,
@@ -132,14 +167,24 @@ export default {
       })
     })
   },
-  requestPutFormData(url, param = {}) {
+  requestPutormDataAndUploadFile(url, params = {}) {
+    let token = wx.getStorageSync('token')
+    let jwt = ''
+    if (token) {
+      // debugger
+      let jwtSuffix = wx.getStorageSync('jwt');
+      if (jwtSuffix) {
+        jwt = 'Bearer ' + jwtSuffix
+        // console.log(jwt);
+      }
+    }
     return new Promise((resolve, reject) => {
       wx.uploadFile({
         url: url,
-        filePath: param.file,
-        name: 'file',
+        filePath: params.certificate,
+        name: 'certificate',
         formData: {
-          'learn': JSON.stringify(param.person) || '',
+          'learn': JSON.stringify(params.learn),
           '_method': 'PUT'
         },
         header: {
@@ -155,7 +200,74 @@ export default {
       })
     })
   },
+  requestPutFormData(url, param = {}) {
+    let token = wx.getStorageSync('token')
+    let jwt = ''
+    if (token) {
+      // debugger
+      let jwtSuffix = wx.getStorageSync('jwt');
+      if (jwtSuffix) {
+        jwt = 'Bearer ' + jwtSuffix
+        // console.log(jwt);
+      }
+    }
+    return new Promise((resolve, reject) => {
+      wx.uploadFile({
+        url: url,
+        filePath: param.file,
+        name: 'file',
+        formData: {
+          'learn': JSON.stringify(param.person) || '',
+          '_method': 'put'
+        },
+        header: {
+          'Content-Type': 'multipart/form-data',
+          'Authorization': jwt || '',
+        },
+        success(res) {
+          resolve(res)
+        },
+        fail(error) {
+          reject(error)
+        }
+      })
+    })
+  },
+  requestPutFormDataNoFile(url, params = {}) {
+    let token = wx.getStorageSync('token')
+    let jwt = ''
+    if (token) {
+      // debugger
+      let jwtSuffix = wx.getStorageSync('jwt');
+      if (jwtSuffix) {
+        jwt = 'Bearer ' + jwtSuffix
+        // console.log(jwt);
+      }
+    }
+    let boundary = new Date().getTime()
+    return new Promise((resolve, reject) => {
+      wx.request({
+        url: url,
+        method: 'PUT',
+        data: JSON.stringify(params),
+        header: {
+          'Content-Type': 'multipart/form-data;boundary=' + boundary,
+          'Authorization': jwt || '',
+        },
+      })
+    })
+  },
   requestPut(url, params = {}) {
+    let token = wx.getStorageSync('token')
+    let jwt = ''
+    if (token) {
+      // debugger
+      let jwtSuffix = wx.getStorageSync('jwt');
+      if (jwtSuffix) {
+        jwt = 'Bearer ' + jwtSuffix
+        // console.log(jwt);
+      }
+    }
     return new Promise((resolve, reject) => {
       wx.request({
         url: url,
@@ -175,6 +287,16 @@ export default {
     })
   },
   requestPutForm(url, params = {}) {
+    let token = wx.getStorageSync('token')
+    let jwt = ''
+    if (token) {
+      // debugger
+      let jwtSuffix = wx.getStorageSync('jwt');
+      if (jwtSuffix) {
+        jwt = 'Bearer ' + jwtSuffix
+        // console.log(jwt);
+      }
+    }
     return new Promise((resolve, reject) => {
       wx.request({
         url: url,

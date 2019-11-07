@@ -37,25 +37,14 @@ Page({
    */
   onReady: function () {
     //测试完后需要修改
-    let that = this
-    learnApi.findLearnsByPersonId().then(res => {
-      let list = res.queryResult.list;
-      for (let i = 0, len = list.length; i < len; i++) {
-        that.data.list[i] = {
-          open: false,
-          learn: list[i]
-        }
-      }
-      that.setData({list: that.data.list})
-      // console.log(that.data.list);
-    })
+    this.getProfile()
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getProfile()
   },
 
   /**
@@ -119,7 +108,7 @@ Page({
       url: '/pages/' + e.target.dataset.val
     })
   },
-  go2AddLearn:function () {
+  go2AddLearn: function () {
     wx.navigateTo({
       url: '/pages/addLearn/addLearn'
     })
@@ -129,6 +118,25 @@ Page({
       wx.navigateBack({
         delta: 1
       })
+    })
+  },
+  go2UpdateLearn: function (e) {
+    wx.navigateTo({
+      url: '/pages/updateLearn/updateLearn?learnId=' + e.currentTarget.id
+    })
+  },
+  getProfile:function () {
+    let that = this
+    learnApi.findLearnsByPersonId().then(res => {
+      let list = res.queryResult.list;
+      for (let i = 0, len = list.length; i < len; i++) {
+        that.data.list[i] = {
+          open: false,
+          learn: list[i]
+        }
+      }
+      that.setData({list: that.data.list})
+      // console.log(that.data.list);
     })
   }
 })

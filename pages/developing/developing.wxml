@@ -28,7 +28,7 @@
             <image class="image-top-bar" bindtap="tap_ch" src="../../images/painting.png"></image>
             <view class="text">发展信息</view>
         </view>
-        <scroll-view scroll-y="true">
+<!--        <scroll-view scroll-y="true">-->
             <view class="content">
                 <block wx:for-items="{{list}}" wx:for-index="index" wx:key>
                     <view class="widgets__item">
@@ -65,6 +65,6 @@
                     </view>
                 </block>
             </view>
-        </scroll-view>
+<!--        </scroll-view>-->
     </view>
 </view>

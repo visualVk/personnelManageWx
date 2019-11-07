@@ -1,0 +1,41 @@
+<!--pages/updateLearn/updateLearn.wxml-->
+<view class="add-page">
+
+    <view class="mod-a mt20">
+        <!-- 任务地点 -->
+        <view class="" bindtap="">
+            <image class="" src="{{learnEntity.learn.certificatePath}}" mode="aspectFill"></image>
+        </view>
+    </view>
+
+    <view class="mod-a mt20">
+        <!-- 任务地点 -->
+        <view class="mod t-address" bindtap="chooseImageAndPreview">
+            <text class="key">凭证照片</text>
+            <text class="value">{{certificateTip}}</text>
+            <image class="arrow-r" src="../../images/arrow-r-0.png"></image>
+        </view>
+
+    </view>
+
+    <view class="mod-a">
+        <!-- 任务名称 -->
+        <view class="mod t-name">
+            <text class="key">进修内容</text>
+            <input bindinput="getLearnContent" class="input" maxlength="100" placeholder="请输入进修内容"
+                   value="{{learnEntity.learn.content}}"/>
+            <image class="arrow-r" src="../../images/arrow-r-0.png"></image>
+        </view>
+    </view>
+
+    <!-- 创建按钮 -->
+    <view class="create">
+        <button class="btn {{creating ? 'disabled' : ''}}" bindtap="bindSubmit">提交</button>
+    </view>
+
+    <!-- 提示信息 -->
+    <!--    <modal confirm-text="确定"no-confirm  no-cancel hidden="{{modalHidden}}" mask bindconfirm="modalChange">-->
+    <!--        请完善新建任务信息-->
+    <!--    </modal>-->
+
+</view>

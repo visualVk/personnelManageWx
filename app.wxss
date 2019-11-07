@@ -55,10 +55,12 @@ page,.page {
 .page-content{
 }
 .page-top{
-    height: 3500rpx;
+    height: 100%;
     position: relative;
     width: 750rpx;
     background-color: #F2F6FC;
+    background-attachment: local;
+    overflow:scroll;
     z-index: 0;
     transition: All 0.4s ease;
     -webkit-transition: All 0.4s ease;

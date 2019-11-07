@@ -8,22 +8,57 @@ let baseUrl = baseInfo.learn
  * @returns {Promise<unknown>}
  */
 export const findLearnsByPersonId = () => {
-    return new Promise((resolve, reject) => {
-        let personId = wx.getStorageSync('personId');
-        http.requestGet(baseUrl + 'findLearnsByPersonId/' + personId).then(res => {
-            resolve(res.data)
-        }).catch(error => {
-            reject(error)
-        })
+  return new Promise((resolve, reject) => {
+    let personId = wx.getStorageSync('personId');
+    http.requestGet(baseUrl + 'findLearnsByPersonId/' + personId).then(res => {
+      resolve(res.data)
+    }).catch(error => {
+      reject(error)
     })
+  })
+}
+
+export const findLearnById = (id) => {
+  return new Promise((resolve, reject) => {
+    http.requestGet(baseUrl + 'findLearnById/' + id).then(res => {
+      resolve(res.data)
+    }).catch(error => {
+      reject(error)
+    })
+  })
 }
 
 export const addLearn = (LearnEntity) => {
-    return new Promise((resolve, reject) => {
-        http.requestPostFormDataAndUploadFile(baseUrl+'addLearn',LearnEntity).then(res => {
-            resolve(res.data)
-        }).catch(error => {
-            reject(error)
-        })
+  return new Promise((resolve, reject) => {
+    http.requestPostFormDataAndUploadFile(baseUrl + 'addLearn', LearnEntity).then(res => {
+      resolve(res.data)
+    }).catch(error => {
+      reject(error)
     })
+  })
+}
+
+export const updateLearn = (LearnEntity) => {
+  // TODO: 不带文件的multipart/formdata有问题，需要修改
+  if (LearnEntity.certificate == null || LearnEntity.certificate == '') {
+    // debugger
+    return new Promise((resolve, reject) => {
+      http.requestPutFormDataNoFile(baseUrl + 'updateLearnById', LearnEntity.learn).then(res => {
+        resolve(res.data)
+      }).catch(error => {
+        reject(error)
+      })
+    })
+  } else {
+    // debugger
+    return new Promise((resolve, reject) => {
+      http.requestPutormDataAndUploadFile(baseUrl + 'updateLearnById', LearnEntity).then(res => {
+        // debugger
+        // console.log(JSON.parse(res.data));
+        resolve(JSON.parse(res.data))
+      }).catch(error => {
+        reject(error)
+      })
+    })
+  }
 }

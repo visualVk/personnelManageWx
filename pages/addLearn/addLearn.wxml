@@ -5,9 +5,9 @@
     <view class="mod-a">
         <!-- 任务名称 -->
         <view class="mod t-name">
-            <text class="key">任务名称</text>
-            <input bindinput="getLearnContent" class="input" maxlength="100" placeholder="请输入任务名称" />
-            <image class="arrow-r" src="../../image/arrow-r-0.png"></image>
+            <text class="key">进修内容</text>
+            <input bindinput="getLearnContent" class="input" maxlength="100" placeholder="请输入进修内容" />
+            <image class="arrow-r" src="../../images/arrow-r-0.png"></image>
         </view>
     </view>
 
