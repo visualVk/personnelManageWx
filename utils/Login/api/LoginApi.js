@@ -13,7 +13,7 @@ export const userLogin = (user) => {
   return new Promise((resolve, reject) => {
     http.requestPostForm(baseUrl + 'userlogin', user)
       .then(res => {
-        // debugger
+        debugger
         let data = res.data
         // console.log(data);
         //cookies数组，查询所需的cookie
@@ -30,7 +30,9 @@ export const userLogin = (user) => {
         userJwt().then(result => {
           resolve(result.data)
         })
-      })
+      }).catch(error => {
+      reject(error)
+    })
   })
 }
 /**
@@ -41,7 +43,7 @@ export const userJwt = () => {
   return new Promise((resolve, reject) => {
     http.requestGet(baseUrl + 'userjwt')
       .then(res => {
-        // debugger
+        debugger
         let data = res.data
         wx.setStorageSync('jwt', data.jwt)
         wx.setStorageSync('personId', data.personId)

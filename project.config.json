@@ -21,7 +21,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
+	"libVersion": "2.9.2",
 	"appid": "wx8e1c1159812dc41e",
 	"projectname": "personnelManageWx",
 	"debugOptions": {
