@@ -29,43 +29,43 @@
             <view class="text">合同信息</view>
             <image class="add" src="../../images/icon_info@3x.png" bindtap="showSearchBar"/>
         </view>
-<!--        <scroll-view scroll-y="true" enable-flex="true">-->
-            <view class="content">
-                <view class="{{searchBarOpen ? 'searchBar-show':'searchBar-hidden'}}">
-                    <input class="search-input" placeholder="输入合同名称" bindinput="getPactName"/>
-                    <a class="search-btn" bindtap="showPactByQueryVo">查询</a>
-                </view>
-                <block wx:for-items="{{list}}" wx:for-index="index" wx:key>
-                    <view class="widgets__item">
-                        <view class="widgets__info" bindtap="widgetsToggle" id="{{item.pact.pactId}}">
-                            <label class="widgets__info-name">合同编号{{index+1}}</label>
-                            <image class="widgets__info-img" src="/images/arrowright.png" mode="aspectFill"/>
+        <!--        <scroll-view scroll-y="true" enable-flex="true">-->
+        <view class="content">
+            <view class="{{searchBarOpen ? 'searchBar-show':'searchBar-hidden'}}">
+                <input class="search-input" placeholder="输入合同名称" bindinput="getPactName"/>
+                <a class="search-btn" bindtap="showPactByQueryVo">查询</a>
+            </view>
+            <block wx:for-items="{{list}}" wx:for-index="index" wx:key>
+                <view class="widgets__item">
+                    <view class="widgets__info" bindtap="widgetsToggle" id="{{item.pact.pactId}}">
+                        <label class="widgets__info-name">合同编号{{index+1}}</label>
+                        <image class="widgets__info-img" src="/images/arrowright.png" mode="aspectFill"/>
+                    </view>
+                    <view class="{{item.open ? '' : 'widgets__table'}}">
+                        <view class="row">
+                            <label class="label-text">名称：</label>
+                            <text class="label-content">{{item.pact.pactName}}</text>
                         </view>
-                        <view class="{{item.open ? '' : 'widgets__table'}}">
-                            <view class="row">
-                                <label class="label-text">名称：</label>
-                                <text class="label-content">{{item.pact.pactName}}</text>
-                            </view>
-                            <view class="row">
-                                <label class="label-text">类型：</label>
-                                <text class="label-content">{{item.pact.pactType.pactTypeName}}</text>
-                            </view>
-                            <view class="row">
-                                <label class="label-text">薪水：</label>
-                                <text class="label-content">{{item.pact.salary}}月</text>
-                            </view>
-                            <view class="row">
-                                <label class="label-text">内容：</label>
-                                <text class="label-content">{{item.pact.pactContent}}</text>
-                            </view>
-                            <view class="row">
-                                <label class="label-text">时长：</label>
-                                <text class="label-content">{{item.pact.duration}}</text>
-                            </view>
+                        <view class="row">
+                            <label class="label-text">类型：</label>
+                            <text class="label-content">{{item.pact.pactType.pactTypeName}}</text>
+                        </view>
+                        <view class="row">
+                            <label class="label-text">薪水：</label>
+                            <text class="label-content">{{item.pact.salary}}月</text>
+                        </view>
+                        <view class="row">
+                            <label class="label-text text-center">内容：</label>
+                        </view>
+                        <view class="row-content text-center">{{item.pact.pactContent}}</view>
+                        <view class="row">
+                            <label class="label-text">时长：</label>
+                            <text class="label-content">{{item.pact.duration}}</text>
                         </view>
                     </view>
-                </block>
-            </view>
-<!--        </scroll-view>-->
+                </view>
+            </block>
+        </view>
+        <!--        </scroll-view>-->
     </view>
 </view>

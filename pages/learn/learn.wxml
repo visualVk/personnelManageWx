@@ -29,43 +29,45 @@
             <view class="text">进修信息</view>
             <image class="add" src="../../images/add_selected.png" bindtap="go2AddLearn"/>
         </view>
-<!--        <scroll-view scroll-y="true" enable-flex="true">-->
-            <view class="content">
-                <block wx:for-items="{{list}}" wx:for-index="index" wx:key>
-                    <view class="widgets__item">
-                        <view class="widgets__info" bindtap="widgetsToggle" id="{{item.learn.learnId}}">
-                            <label class="widgets__info-name">进修编号{{index+1}}</label>
-                            <image class="widgets__info-img" src="/images/arrowright.png" mode="aspectFill"/>
-                        </view>
-                        <view class="{{item.open ? '' : 'widgets__table'}}">
-                            <!--                            <block wx:for="{{item}}" wx:key>-->
-                            <view class="row">
-                                <view class="empty-box"/>
-                                <image class="image-content" src="{{item.learn.certificatePath}}" mode="aspectFill"/>
-                                <view class="empty-box"/>
-                            </view>
-                            <view class="row">
-                                <label class="label-text">内容：</label>
-                                <text class="label-content">{{item.learn.content}}</text>
-                            </view>
-                            <view class="row">
-                                <label class="label-text">提交日期：</label>
-                                <text class="label-content">{{item.learn.date}}</text>
-                            </view>
-                            <view class="row">
-                                <view class="empty-box"/>
-                                <text class="label-content text-center text-red">{{item.learn.checkString}}</text>
-                                <view class="empty-box"/>
-                            </view>
-                            <view class="row">
-                                <button class="edit-btn" id="{{item.learn.learnId}}" bindtap="go2UpdateLearn">编辑
-                                </button>
-                            </view>
-                            <!--                            </block>-->
-                        </view>
+        <!--        <scroll-view scroll-y="true" enable-flex="true">-->
+        <view class="content">
+            <block wx:for-items="{{list}}" wx:for-index="index" wx:key>
+                <view class="widgets__item">
+                    <view class="widgets__info" bindtap="widgetsToggle" id="{{item.learn.learnId}}">
+                        <label class="widgets__info-name">进修编号{{index+1}}</label>
+                        <image class="widgets__info-img" src="/images/arrowright.png" mode="aspectFill"/>
                     </view>
-                </block>
-            </view>
-<!--        </scroll-view>-->
+                    <view class="{{item.open ? '' : 'widgets__table'}}">
+                        <!--                            <block wx:for="{{item}}" wx:key>-->
+                        <view class="row">
+                            <view class="empty-box"/>
+                            <image class="image-content" src="{{item.learn.certificatePath}}" mode="aspectFill"/>
+                            <view class="empty-box"/>
+                        </view>
+                        <view class="row">
+                            <label class="label-text text-center">内容：</label>
+                        </view>
+                        <view class="row-content">
+                            <text class="label-content text-center">{{item.learn.content}}</text>
+                        </view>
+                        <view class="row">
+                            <label class="label-text">提交日期：</label>
+                            <text class="label-content text-center">{{item.learn.date}}</text>
+                        </view>
+                        <view class="row">
+                            <view class="empty-box"/>
+                            <text class="label-content text-center text-red">{{item.learn.checkString}}</text>
+                            <view class="empty-box"/>
+                        </view>
+                        <view class="row">
+                            <button class="edit-btn" id="{{item.learn.learnId}}" bindtap="go2UpdateLearn">编辑
+                            </button>
+                        </view>
+                        <!--                            </block>-->
+                    </view>
+                </view>
+            </block>
+        </view>
+        <!--        </scroll-view>-->
     </view>
 </view>

@@ -115,8 +115,8 @@ Page({
   },
   logout: function () {
     loginApi.userlogout().then(res => {
-      wx.navigateBack({
-        delta: 1
+      wx.redirectTo({
+        url:'/pages/login/login'
       })
     })
   },

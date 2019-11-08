@@ -28,43 +28,43 @@
             <image class="image-top-bar" bindtap="tap_ch" src="../../images/painting.png"></image>
             <view class="text">发展信息</view>
         </view>
-<!--        <scroll-view scroll-y="true">-->
-            <view class="content">
-                <block wx:for-items="{{list}}" wx:for-index="index" wx:key>
-                    <view class="widgets__item">
-                        <view class="widgets__info" bindtap="widgetsToggle" id="{{item.developing.developingId}}">
-                            <label class="widgets__info-name">发展信息编号{{index+1}}</label>
-                            <image class="widgets__info-img" src="/images/arrowright.png" mode="aspectFill"/>
+        <!--        <scroll-view scroll-y="true">-->
+        <view class="content">
+            <block wx:for-items="{{list}}" wx:for-index="index" wx:key>
+                <view class="widgets__item">
+                    <view class="widgets__info" bindtap="widgetsToggle" id="{{item.developing.developingId}}">
+                        <label class="widgets__info-name">发展信息编号{{index+1}}</label>
+                        <image class="widgets__info-img" src="/images/arrowright.png" mode="aspectFill"/>
+                    </view>
+                    <view class="{{item.open ? '' : 'widgets__table'}}">
+                        <view class="row">
+                            <view class="empty-box"/>
+                            <label class="label-text">工作经验：</label>
+                            <view class="empty-box"/>
                         </view>
-                        <view class="{{item.open ? '' : 'widgets__table'}}">
-                            <view class="row">
-                                <view class="empty-box"/>
-                                <label class="label-text">工作经验：</label>
-                                <view class="empty-box"/>
+                        <view class="{{item.open? '': 'widgets__table'}}">
+                            <view class="row-content">
+                                <text class="label-content text-center">{{item.developing.jobExperience}}</text>
                             </view>
-                            <view class="{{item.open? '': 'widgets__table'}}">
-                                <view class="row">
-                                    <text class="label-content text-center">{{item.developing.jobExperience}}</text>
-                                </view>
+                        </view>
+                        <view class="row">
+                            <view class="empty-box"/>
+                            <label class="label-text">学习经验：</label>
+                            <view class="empty-box"/>
+                        </view>
+                        <view class="{{item.open? '': 'widgets__table'}}">
+                            <view class="row-content">
+                                <text class="label-content text-center">{{item.developing.learnExperience}}</text>
                             </view>
-                            <view class="row">
-                                <view class="empty-box"/>
-                                <label class="label-text">学习经验：</label>
-                                <view class="empty-box"/>
-                            </view>
-                            <view class="{{item.open? '': 'widgets__table'}}">
-                                <view class="row">
-                                    <text class="label-content text-center">{{item.developing.learnExperience}}</text>
-                                </view>
-                            </view>
-                            <view class="row">
-                                <label class="label-text">提交时间：</label>
-                                <text class="label-content">{{item.developing.date}}</text>
-                            </view>
+                        </view>
+                        <view class="row">
+                            <label class="label-text">提交时间：</label>
+                            <text class="label-content">{{item.developing.date}}</text>
                         </view>
                     </view>
-                </block>
-            </view>
-<!--        </scroll-view>-->
+                </view>
+            </block>
+        </view>
+        <!--        </scroll-view>-->
     </view>
 </view>

@@ -90,15 +90,15 @@ Page({
     loginApi.userLogin(this.data.user).then(res => {
       // console.log(res);
       if (res.success) {
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/index/index'
         })
       }
     })
   },
-  forgetPassword:function () {
+  forgetPassword: function () {
     wx.navigateTo({
-      url:'/pages/forgetPassword/forgetPassword'
+      url: '/pages/forgetPassword/forgetPassword'
     })
   }
 })
