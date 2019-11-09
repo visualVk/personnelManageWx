@@ -95,26 +95,48 @@ Page({
     })
   },
   sendVerifyCode: function () {
-    passwordApi.findPassword(this.data.findPassword).then(res => {
+    if (this.data.findPassword.username === '' || this.data.findPassword.email === '') {
       wx.showToast({
-        title: '验证码发送成功',
-        icon: 'SUCCESS'
+        title: '用户名或邮箱未填写',
+        icon: 'none'
       })
-    })
+    } else {
+      passwordApi.findPassword(this.data.findPassword).then(res => {
+        if (res.success) {
+          wx.showToast({
+            title: '验证码发送成功',
+            icon: 'SUCCESS'
+          })
+        } else {
+          wx.showToast({
+            title: '用户名或邮箱不正确,',
+            icon: 'none'
+          })
+        }
+      })
+    }
   },
   resetPassword: function () {
-    passwordApi.resetPassword(this.data.findPassword).then(res => {
-      if (res.success) {
-        wx.showToast({
-          title: '修改成功',
-          icon: 'SUCCESS'
-        })
-      } else {
-        wx.showToast({
-          title: res.message,
-          icon: 'fail'
-        })
-      }
-    })
+    if (this.data.findPassword.username === '' || this.data.findPassword.newPassword === ''
+      || this.data.findPassword.verifyCode === '' || this.data.findPassword.email === '') {
+      wx.showToast({
+        title: '有选项为空，请填写',
+        icon: 'none'
+      })
+    } else {
+      passwordApi.resetPassword(this.data.findPassword).then(res => {
+        if (res.success) {
+          wx.showToast({
+            title: '修改成功',
+            icon: 'SUCCESS'
+          })
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'none'
+          })
+        }
+      })
+    }
   }
 })

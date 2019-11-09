@@ -84,17 +84,22 @@ Page({
     let that = this
     wx.chooseImage({
       success(res) {
-        debugger
+        // debugger
         that.data.addLearn.certificate = res.tempFilePaths[0]
         that.setData({
-          certificateTip: '已选择图片，可跟换'
+          certificateTip: '已选择图片，可跟换',
+          addLearn: that.data.addLearn
         })
       }
     })
   },
   bindSubmit: function () {
-    learnApi.addLearn(this.data.addLearn).then(res => {
-      console.log(res);
-    })
+    if (this.data.addLearn.certificate == null || this.data.addLearn.certificate === '' ||
+      this.data.addLearn.learn.content == null || this.data.addLearn.learn.content === '') {
+      wx.showToast({
+        title: '请添加图片或内容',
+        icon: 'none'
+      })
+    }
   }
 })

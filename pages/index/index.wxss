@@ -44,15 +44,14 @@
 .row-image{
   margin-top: 20rpx;
   flex: 1;
-  height: 200rpx;
   display: flex;
   flex-direction: row;
   background-color: white;
 }
 
 .image-content{
-  height: 200rpx;
-  width: 200rpx;
+  text-align: center;
+  width: 80%;
 }
 
 .label-text{

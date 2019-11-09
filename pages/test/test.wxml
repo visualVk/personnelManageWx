@@ -1,7 +1,3 @@
 <!--pages/test/test.wxml-->
-<view>
-    <scroll-view>
-        <view style="height:500px">123</view>
-        <view style="height:500px">123</view>
-    </scroll-view>
-</view>
+<web-view src="/pages/login/login">
+</web-view>

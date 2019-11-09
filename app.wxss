@@ -107,3 +107,9 @@ page,.page {
     font-size: 15sp;
     color: darkgray;
 }
+
+.nav-image {
+    align-content: center;
+    height: 20rpx;
+    width: 20rpx;
+}

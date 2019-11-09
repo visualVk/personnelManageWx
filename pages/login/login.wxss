@@ -20,6 +20,7 @@
     color: cornflowerblue;
 }
 .usernameBox {
+    text-align: center;
     flex: 1;
     display: flex;
     flex-direction: row;
@@ -40,14 +41,15 @@
 }
 
 .passwordInput {
-    margin-left: 20rpx;
-    margin-top: 20rpx;
-    margin-bottom: 20rpx;
+    /*margin-left: 20rpx;*/
+    /*margin-top: 20rpx;*/
+    /*margin-bottom: 20rpx;*/
+    padding: 20rpx;
     text-align: center;
 }
 
 .userPic {
-    margin-left: 20rpx;
+    margin-left: 10rpx;
     margin-top: 20rpx;
     margin-bottom: 20rpx;
     height: 50rpx;
@@ -56,9 +58,8 @@
 }
 
 .usernameInput {
-    margin-top: 20rpx;
-    margin-left: 75rpx;
-    margin-bottom: 20rpx;
+    width: 65%;
+    padding: 20rpx;
 }
 
 .loginBtn {

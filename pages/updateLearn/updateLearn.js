@@ -84,21 +84,28 @@ Page({
 
   },
   bindSubmit: function () {
-    learnApi.updateLearn(this.data.learnEntity).then(res => {
-      debugger
-      console.log(res);
-      if (res.success) {
-        wx.showToast({
-          title: res.message,
-          icon: 'SUCCESS',
-        })
-      } else {
-        wx.showToast({
-          title: res.message,
-          icon: 'none'
-        })
-      }
-    })
+    if (this.data.learnEntity.certificate == null || this.data.learnEntity.certificate === '') {
+      wx.showToast({
+        title: '请选择图片',
+        icon: 'none'
+      })
+    } else {
+      learnApi.updateLearn(this.data.learnEntity).then(res => {
+        // debugger
+        console.log(res);
+        if (res.success) {
+          wx.showToast({
+            title: res.message,
+            icon: 'SUCCESS',
+          })
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'none'
+          })
+        }
+      })
+    }
   },
   getLearnContent: function (e) {
     let learnEntity = this.data.learnEntity
@@ -112,7 +119,7 @@ Page({
     let that = this
     wx.chooseImage({
       success(res) {
-        debugger
+        // debugger
         that.data.learnEntity.certificate = res.tempFilePaths[0]
         that.data.learnEntity.learn.certificatePath = res.tempFilePaths[0]
         that.setData({

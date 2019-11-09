@@ -7,7 +7,7 @@ const app = getApp()
 
 Page({
   data: {
-    username: 'username',
+    username: '欢迎',
     user: {
       username: '',
       password: ''
@@ -21,7 +21,7 @@ Page({
       isLive: true,
       partyBranch: '',
       imagePath: '../../images/tab_account2.png',
-      jobs: [
+      job: [
         {
           jobId: 1,
           jobName: 'jobName1',
@@ -45,6 +45,7 @@ Page({
     let that = this;
     personApi.findPersonNormalInfoById().then(res => {
       // console.log(res);
+      // debugger
       that.setData({
         person: res.queryResult.list[0]
       })
@@ -65,7 +66,8 @@ Page({
     }
   },
   widgetsToggle: function (e) {
-    var list = this.data.list
+    // debugger
+    let list = this.data.list
     list.open = !list.open
     // console.log(list)
     this.setData({
@@ -80,7 +82,7 @@ Page({
   logout: function () {
     loginApi.userlogout().then(res => {
       wx.redirectTo({
-        url:'/pages/login/login'
+        url: '/pages/login/login'
       })
     })
   }

@@ -15,7 +15,7 @@ export const findPassword = (findUser) => {
 export const resetPassword = (findUser) => {
   return new Promise((resolve, reject) => {
     http.requestPutForm(baseUrl + 'resetPassword', findUser).then(res => {
-      debugger
+      // debugger
       resolve(res.data)
     }).catch(error => {
       reject(error)

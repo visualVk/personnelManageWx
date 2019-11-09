@@ -7,18 +7,23 @@
                 <text>{{username}}</text>
             </view>
             <view class="wc">
+                <image class="nav-image" src="../../images/baseline_people_black_18dp.png"/>
                 <a bindtap="go2Page" data-val="index/index">个人信息</a>
             </view>
             <view class="wc">
+                <image class="nav-image" src="../../images/baseline_poll_black_18dp.png"/>
                 <a bindtap="go2Page" data-val="learn/learn">进修信息</a>
             </view>
             <view class="wc">
+                <image class="nav-image" src="../../images/baseline_pages_black_18dp.png"/>
                 <a bindtap="go2Page" data-val="developing/developing">发展信息</a>
             </view>
             <view class="wc">
+                <image class="nav-image" src="../../images/baseline_poll_black_18dp.png"/>
                 <a bindtap="go2Page" data-val="pact/pact">合同信息</a>
             </view>
             <view class="wc">
+                <image class="nav-image" src="../../images/baseline_exit_to_app_black_18dp.png"/>
                 <a bindtap="logout" data-val="pact/pact">登出</a>
             </view>
         </view>
@@ -39,7 +44,7 @@
                     </view>
                     <view class="{{item.open ? '' : 'widgets__table'}}">
                         <!--                            <block wx:for="{{item}}" wx:key>-->
-                        <view class="row">
+                        <view class="row-image">
                             <view class="empty-box"/>
                             <image class="image-content" src="{{item.learn.certificatePath}}" mode="aspectFill"/>
                             <view class="empty-box"/>

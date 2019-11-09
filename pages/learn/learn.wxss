@@ -29,16 +29,13 @@
 .row-image {
     margin-top: 20rpx;
     flex: 1;
-    height: 200rpx;
     display: flex;
     flex-direction: row;
     background-color: white;
 }
 
 .image-content {
-    height: 150rpx;
-    width: 150rpx;
-    overflow: hidden;
+    width: 85%;
 }
 
 .label-text {

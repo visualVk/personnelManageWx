@@ -8,8 +8,8 @@ Page({
    */
   data: {
     user: {
-      username: 'a463806017',
-      password: 'a463806017'
+      username: '',
+      password: ''
     }
   },
 
@@ -69,32 +69,58 @@ Page({
 
   },
   getUsername: function (e) {
-    let that = this;
+    // debugger
+    console.log(e.detail.value)
+    this.data.user.username = e.detail.value
+    let user = this.data.user
+    // console.log(user);
     this.setData({
-      user: {
-        username: e.detail.value,
-        password: that.data.user.password,
-      }
+      user: user
     })
+    // console.log(user);
   },
   getPassword: function (e) {
-    let that = this;
+    // debugger
+    this.data.user.password = e.detail.value
+    let user = this.data.user
+    // console.log(user);
     this.setData({
-      user: {
-        username: that.data.user.username,
-        password: e.detail.value
-      }
+      user: user
     })
+    // console.log(user);
   },
   login: function () {
-    loginApi.userLogin(this.data.user).then(res => {
-      // console.log(res);
-      if (res.success) {
-        wx.redirectTo({
-          url: '/pages/index/index'
-        })
-      }
-    })
+    // debugger
+    // wx.setStorageSync('personId', 2)
+    // debugger
+    if (this.data.user.username == null || this.data.user.username === '') {
+      wx.showToast({
+        title: '请输入账户',
+        icon: 'none'
+      })
+    } else if (this.data.user.password == null || this.data.user.password === '') {
+      wx.showToast({
+        title: '请输入密码',
+        icon: 'none'
+      })
+    } else {
+      loginApi.userLogin(this.data.user).then(res => {
+        // console.log(res);
+        if (res.success) {
+          wx.redirectTo({
+            url: '/pages/index/index'
+          })
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'none'
+          })
+        }
+      })
+    }
+    // wx.redirectTo({
+    //   url: '/pages/index/index'
+    // })
   },
   forgetPassword: function () {
     wx.navigateTo({

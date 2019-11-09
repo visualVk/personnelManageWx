@@ -1,6 +1,7 @@
 import http from "../../api/httpRequest";
+import {baseInfo} from "../../System";
 
-let baseUrl = 'http://personnel-manage.top:40400/auth/'
+let baseUrl = baseInfo.auth
 /**
  * 用户登录
  * @param user：{
@@ -11,9 +12,10 @@ let baseUrl = 'http://personnel-manage.top:40400/auth/'
  */
 export const userLogin = (user) => {
   return new Promise((resolve, reject) => {
+    // debugger
     http.requestPostForm(baseUrl + 'userlogin', user)
       .then(res => {
-        debugger
+        // debugger
         let data = res.data
         // console.log(data);
         //cookies数组，查询所需的cookie
@@ -43,7 +45,7 @@ export const userJwt = () => {
   return new Promise((resolve, reject) => {
     http.requestGet(baseUrl + 'userjwt')
       .then(res => {
-        debugger
+        // debugger
         let data = res.data
         wx.setStorageSync('jwt', data.jwt)
         wx.setStorageSync('personId', data.personId)

@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    username: '欢迎',
     searchBarOpen: false,
     open: false,
     list: [

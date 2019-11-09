@@ -7,18 +7,23 @@
                 <text>{{username}}</text>
             </view>
             <view class="wc">
+                <image class="nav-image" src="../../images/baseline_people_black_18dp.png"/>
                 <a bindtap="go2Page" data-val="index/index">个人信息</a>
             </view>
             <view class="wc">
+                <image class="nav-image" src="../../images/baseline_poll_black_18dp.png"/>
                 <a bindtap="go2Page" data-val="learn/learn">进修信息</a>
             </view>
             <view class="wc">
+                <image class="nav-image" src="../../images/baseline_pages_black_18dp.png"/>
                 <a bindtap="go2Page" data-val="developing/developing">发展信息</a>
             </view>
             <view class="wc">
+                <image class="nav-image" src="../../images/baseline_poll_black_18dp.png"/>
                 <a bindtap="go2Page" data-val="pact/pact">合同信息</a>
             </view>
             <view class="wc">
+                <image class="nav-image" src="../../images/baseline_exit_to_app_black_18dp.png"/>
                 <a bindtap="logout" data-val="pact/pact">登出</a>
             </view>
         </view>
@@ -52,15 +57,17 @@
                         </view>
                         <view class="row">
                             <label class="label-text">薪水：</label>
-                            <text class="label-content">{{item.pact.salary}}月</text>
+                            <text class="label-content">{{item.pact.salary}}元/月</text>
                         </view>
                         <view class="row">
                             <label class="label-text text-center">内容：</label>
                         </view>
-                        <view class="row-content text-center">{{item.pact.pactContent}}</view>
+                        <view class="pact-content-row">
+                            <text class="pact-content-scroll text-center">{{item.pact.pactContent}}</text>
+                        </view>
                         <view class="row">
                             <label class="label-text">时长：</label>
-                            <text class="label-content">{{item.pact.duration}}</text>
+                            <text class="label-content">{{item.pact.duration}}月</text>
                         </view>
                     </view>
                 </view>
