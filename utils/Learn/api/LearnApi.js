@@ -30,8 +30,9 @@ export const findLearnById = (id) => {
 
 export const addLearn = (LearnEntity) => {
   return new Promise((resolve, reject) => {
+    LearnEntity.learn.personId = wx.getStorageSync('personId')
     http.requestPostFormDataAndUploadFile(baseUrl + 'addLearn', LearnEntity).then(res => {
-      resolve(res.data)
+      resolve(JSON.parse(res.data))
     }).catch(error => {
       reject(error)
     })

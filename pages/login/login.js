@@ -112,7 +112,7 @@ Page({
           })
         } else {
           wx.showToast({
-            title: res.message,
+            title: '用户名错误或密码错误',
             icon: 'none'
           })
         }

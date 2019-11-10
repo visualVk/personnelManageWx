@@ -96,9 +96,25 @@ Page({
   bindSubmit: function () {
     if (this.data.addLearn.certificate == null || this.data.addLearn.certificate === '' ||
       this.data.addLearn.learn.content == null || this.data.addLearn.learn.content === '') {
-      wx.showToast({
-        title: '请添加图片或内容',
-        icon: 'none'
+      if (res.success) {
+        wx.showToast({
+          title: '请添加图片或内容',
+          icon: 'none'
+        })
+      }
+    } else {
+      learnApi.addLearn(this.data.addLearn).then(res => {
+        if (res.success) {
+          wx.showToast({
+            title: '添加成功',
+            icon: 'SUCCESS'
+          })
+        } else {
+          wx.showToast({
+            title: res.message,
+            icon: 'none'
+          })
+        }
       })
     }
   }
